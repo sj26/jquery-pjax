@@ -1,4 +1,5 @@
 fs = require 'fs'
+system = require('system')
 print = (s) -> fs.write "/dev/stderr", s, 'w'
 
 page = new WebPage()
@@ -13,7 +14,7 @@ deferTimeout = ->
   , 3000
 
 exited = false
-page.open phantom.args[0], ->
+page.open system.args[1], ->
   deferTimeout()
 
   setInterval ->
